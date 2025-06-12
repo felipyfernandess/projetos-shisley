@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Dia Dos Namorados</title>
+    <link rel="shortcut icon" href="imagens/favicon-coração.png" type="image/x-icon">
+
+    <style>
+        body{
+            background-color: red;
+        }
+
+        .painel{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            width: 500px;
+            height: 500px;
+            border-radius: 20px;
+            text-align: center;
+            padding-top: 50px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #sim{
+            height: 40px;
+            width: 60px;
+            background-color: red;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-left: -80px;
+        }
+
+        #nao{
+            position: absolute;
+            height: 40px;
+            width: 60px;
+            background-color: red;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-left: 15px;
+        }
+
+        h2{
+            font-size: 1.4em;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="painel">
+        <h1>Feliz Dia Dos Namorados</h1>
+
+        <img src="https://gifman.net/wp-content/uploads/2019/06/ursinho-fofo-apaixonado.gif" alt="">
+
+        <h2>Quer ser o verso mais bonito da minha vida?</h2>
+
+        <button id="sim" onclick="parabens()"> Sim! </button>
+        <button  onmouseover="fuja()" id="nao"> Não! </button>
+
+    </div>
+
+    <script>
+        function fuja(){
+            var botaoNao = document.getElementById("nao");
+
+            // Obtém as dimensões da tela
+            var larguraJanela = Math.min(window.innerWidth, 800); // Limita a 800px
+            var alturaJanela = Math.min(window.innerHeight, 550); // Limita a 550px
+
+            // Calcula as posições máximas permitidas
+            var maxX = larguraJanela - botaoNao.offsetWidth;
+            var maxY = alturaJanela - botaoNao.offsetHeight;
+
+            // Gera posições aleatórias dentro dos limites da tela
+            var aleatorioX = Math.floor(Math.random() * maxX);
+            var aleatorioY = Math.floor(Math.random() * maxY);
+
+            // Define a posição do botão
+            botaoNao.style.position = 'fixed';
+            botaoNao.style.left = aleatorioX + "px";
+            botaoNao.style.top = aleatorioY + "px";
+        }
+
+        function parabens(){
+            alert("Excelente escolha! Você é a pessoa mais especial do mundo para mim! ❤️");
+            window.location.href = "https://www.youtube.com/watch?v=2Vv-BfVoq4g"; // Link para uma música romântica
+        }
+    </script>
+</body>
+</html>
