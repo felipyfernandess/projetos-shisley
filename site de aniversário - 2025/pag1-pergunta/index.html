@@ -11,13 +11,79 @@
         <img src="imagens/gato-confuso.png" alt="gato confuso">
         <h1>Tem alguma aniversariante hoje??</h1>
         <div id="botoes">
-            <a href="">
+            <a href="../pag2-happybirthday/">
                 <button>SIMMM!!!!</button>
             </a>
             <a href="">
-                <button>NÃO!</button>
+                <button id="botao-nao">NÃO!</button>
             </a>
         </div>
     </main>
+    
+    <script>
+        const botaoNao = document.getElementById('botao-nao');
+        
+        function gerarPosicaoAleatoria() {
+            // Obter dimensões da janela
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            
+            // Obter dimensões do botão
+            const rect = botaoNao.getBoundingClientRect();
+            const buttonWidth = rect.width;
+            const buttonHeight = rect.height;
+            
+            // Obter dimensões da imagem
+            const imagem = document.querySelector('img');
+            const imgRect = imagem.getBoundingClientRect();
+            
+            let randomX, randomY;
+            let posicaoValida = false;
+            
+            // Tentar gerar uma posição que não sobreponha a imagem
+            while (!posicaoValida) {
+                // Calcular posições máximas para manter o botão visível na tela
+                const maxX = windowWidth - buttonWidth;
+                const maxY = windowHeight - buttonHeight;
+                
+                // Gerar posições aleatórias dentro dos limites da tela
+                randomX = Math.random() * maxX;
+                randomY = Math.random() * maxY;
+                
+                // Verificar se a posição não sobrepõe a imagem
+                const botaoDireita = randomX + buttonWidth;
+                const botaoBaixo = randomY + buttonHeight;
+                const imgDireita = imgRect.left + imgRect.width;
+                const imgBaixo = imgRect.top + imgRect.height;
+                
+                // Se não há sobreposição, a posição é válida
+                if (randomX > imgRect.right || botaoDireita < imgRect.left || 
+                    randomY > imgRect.bottom || botaoBaixo < imgRect.top) {
+                    posicaoValida = true;
+                }
+            }
+            
+            return { x: randomX, y: randomY };
+        }
+        
+        botaoNao.addEventListener('mouseenter', function() {
+            const posicao = gerarPosicaoAleatoria();
+            
+            // Aplicar a nova posição com transição suave
+            botaoNao.style.position = 'fixed';
+            botaoNao.style.left = posicao.x + 'px';
+            botaoNao.style.top = posicao.y + 'px';
+            botaoNao.style.transition = 'all 0.3s ease';
+            botaoNao.style.zIndex = '1000';
+        });
+        
+        // Resetar posição apenas quando clicar no botão
+        botaoNao.addEventListener('click', function() {
+            botaoNao.style.position = 'static';
+            botaoNao.style.left = 'auto';
+            botaoNao.style.top = 'auto';
+            botaoNao.style.zIndex = 'auto';
+        });
+    </script>
 </body>
 </html>
