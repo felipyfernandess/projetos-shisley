@@ -4,10 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIMMM</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <main>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/n07W-3ZXfHY?si=ghZNwcVjmTs8i_V4&amp;controls=0"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div style="position: relative; width: 560px; height: 315px;">
+            <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/n07W-3ZXfHY?si=ghZNwcVjmTs8i_V4&controls=0&autoplay=1&loop=1&mute=1&playlist=n07W-3ZXfHY" frameborder="0" allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <button id="unmuteBtn" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 16px 32px; font-size: 18px; background: #D70BEB; border: none; border-radius: 8px; cursor: pointer;">Ativar som 🔊</button>
+        </div>
+        <h1> Happy Birthday To You!!!</h1>
+        <div>
+            <a href="">
+                <i class="fa-solid fa-circle-arrow-right"></i>
+            </a>
+        </div>
+        <script>
+            const btn = document.getElementById('unmuteBtn');
+            const iframe = document.getElementById('video');
+            btn.addEventListener('click', function() {
+                // Troca o src para remover o mute=1
+                let src = iframe.src;
+                src = src.replace('mute=1', 'mute=0');
+                iframe.src = src;
+                btn.style.display = 'none';
+            });
+
+            // Script dos balões coloridos
+            function randomColor() {
+                const cores = [
+                    '#D70BEB', '#C64FD1'
+                ];
+                return cores[Math.floor(Math.random() * cores.length)];
+            }
+            function criarBalao() {
+                const balao = document.createElement('div');
+                balao.className = 'balao';
+                balao.style.left = Math.random() * 95 + 'vw';
+                balao.style.background = randomColor();
+                balao.style.transition = 'opacity 0.3s';
+                // Adiciona a cordinha SVG ondulada
+                const cordinha = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                cordinha.setAttribute('class', 'balao-cordinha');
+                cordinha.setAttribute('width', '18');
+                cordinha.setAttribute('height', '54');
+                cordinha.setAttribute('viewBox', '0 0 18 54');
+                // Gera um path ondulado aleatório
+                let path = 'M9,0 ';
+                let y = 0;
+                for(let i=1; i<=6; i++) {
+                    y += 9;
+                    const x = 9 + (Math.random() * 7 - 3.5) * (i%2===0?1:-1);
+                    path += `Q${x},${y-4.5} 9,${y} `;
+                }
+                const pathElem = document.createElementNS('http://www.w3.org/2000/svg','path');
+                pathElem.setAttribute('d', path);
+                pathElem.setAttribute('stroke', '#fff');
+                pathElem.setAttribute('stroke-width', '2');
+                pathElem.setAttribute('fill', 'none');
+                pathElem.setAttribute('opacity', '0.85');
+                cordinha.appendChild(pathElem);
+                balao.appendChild(cordinha);
+                document.body.appendChild(balao);
+                setTimeout(() => {
+                    balao.remove();
+                }, 6000);
+            }
+            // Cria balões por alguns segundos ao carregar a página
+            let baloesInterval = setInterval(criarBalao, 400);
+            for(let i=0; i<8; i++) setTimeout(criarBalao, i*300);
+            setTimeout(() => clearInterval(baloesInterval), 5000); // Para após 5 segundos
+        </script>
     </main>
 </body>
 </html>
