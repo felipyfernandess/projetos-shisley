@@ -33,7 +33,7 @@
             // Script dos balões coloridos
             function randomColor() {
                 const cores = [
-                    '#D70BEB', '#C64FD1'
+                    '#D70BEB', '#C64FD1', '#E8B4F8', '#F0D9FF', '#F8E6FF', '#FFB6E6', '#FFD1DC'
                 ];
                 return cores[Math.floor(Math.random() * cores.length)];
             }
@@ -71,9 +71,9 @@
                 }, 6000);
             }
             // Cria balões por alguns segundos ao carregar a página
-            let baloesInterval = setInterval(criarBalao, 400);
-            for(let i=0; i<8; i++) setTimeout(criarBalao, i*300);
-            setTimeout(() => clearInterval(baloesInterval), 5000); // Para após 5 segundos
+            let baloesInterval = setInterval(criarBalao, 300);
+            for(let i=0; i<15; i++) setTimeout(criarBalao, i*200);
+            setTimeout(() => clearInterval(baloesInterval), 8000); // Para após 8 segundos
         </script>
     </main>
 </body>
