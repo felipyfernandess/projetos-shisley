@@ -1,0 +1,53 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+.coracao-transparente{
+    width: 40px;
+}
+
+.batimento-coracao{
+    display: flex;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.animacao-coracao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+}
+
+.imagem-shisley {
+    width: 400px;
+}
+
+.imagem-shisley > img{
+    width: 400px;
+}
+
+#triangulos{
+    display: grid;
+    grid-template-columns: 55px 55px;
+    grid-template-rows: 55px 55px;
+}
+
+.triangulo{
+    width: 0; 
+    height: 0; 
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 40px solid #5386E4;
+    rotate: -135deg;
+}
