@@ -7,6 +7,45 @@
 
 body {
     font-family: Arial, sans-serif;
+    background-color: #111021;
+    color: #bd1c58;
+    font-family: 'poppins';
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.lovely{
+    display: flex;
+    background-color: #d11258;
+    width: 250px;
+    align-items: center;
+    justify-content: end;
+    border-radius: 0px 40px 40px 0px;
+    padding: 10px 20px 0px 0px;
+}
+
+.lovely > span{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.observations{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d11258;
+    width: 250px;
+    height: 50px;
+    color: #111021;
+    font-weight: bolder;
+    border-radius: 40px 0px 0px 40px;
+    padding: 10px 0px 10px 20px;
 }
 
 
