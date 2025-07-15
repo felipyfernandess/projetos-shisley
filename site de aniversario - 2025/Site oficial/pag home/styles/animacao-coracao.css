@@ -1,8 +1,22 @@
 @charset "UTF-8";
 
+.animacao-coracao{
+    position: absolute;
+    top: 470px;
+    width: 300px;
+}
+
+#coracao-esquerdo{
+    left: calc(100% - 330px); 
+}
+
+#coracao-direito{
+    left: 50px; 
+}
+
 svg #line {
   fill: none;
-  stroke: #e00000;
+  stroke: #bd1c58;
   stroke-width: 1.5;
   stroke-linecap: butt;
   stroke-linejoin: round;
@@ -11,11 +25,11 @@ svg #line {
   stroke-opacity: 1;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: dash 3s linear infinite;
+  animation: dash 4s linear infinite;
 }
 svg #point {
   fill: none;
-  stroke: #f00000;
+  stroke: #bd1c58;
   stroke-width: 5;
   stroke-linecap: round;
   stroke-linejoin: round;

@@ -1,75 +1,64 @@
 @charset "UTF-8";
-        .quadrado1{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 300px;
-            height: 300px;
-            background-color: rgb(222, 62, 89);
-            rotate: 45deg;
-        }
-        
-        .quadrado2{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 212px;
-            height: 212px;
-            background-color: black;
-            rotate: 45deg;
-        }
 
-        .quadrado3{
-            width: 150px;
-            height: 150px;
-            background-color: rgb(222, 62, 89);
-            rotate: 45deg;
-        }
+/* QUADRADOS */
 
-        .linhas-espiral {
-            position: relative;
-            width: 200px;
-            height: 5px;
-        }
+.quadrado1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    background-color: rgb(222, 62, 89);
+    rotate: 45deg;
+}
 
-        .linha {
-            position: absolute;
-            width: 100%;
-            height: 5px;
-            background-color: black;
-        }
+.quadrado2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 212px;
+    height: 212px;
+    background-color: black;
+    rotate: 45deg;
+}
 
-        .linha1{
-            rotate: 15deg;
-        }
+.quadrado3{
+    width: 150px;
+    height: 150px;
+    background-color: rgb(222, 62, 89);
+    rotate: 45deg;
+}
 
-        .linha2 {
-            rotate: 30deg;
-        }
-        .linha3 {
-            rotate: 45deg;
-        }
-        .linha4 {
-            rotate: 60deg;
-        }
-        .linha5 {
-            rotate: 75deg;
-        }
-        .linha6 {
-            rotate: 90deg;
-        }
-        .linha7 {
-            rotate: 105deg;
-        }
-        .linha8 {
-            rotate: 120deg;
-        }
-        .linha9 {
-            rotate: 135deg;
-        }
-        .linha10 {
-            rotate: 150deg;
-        }
-        .linha11 {
-            rotate: 165deg;
-        }
+/* LINHAS */
+
+.linha{
+    position: absolute;
+    top: 470px;
+    left: 994px;
+    width: 75px;
+    height: 2px;
+    background-color: #bd1c58;
+}
+
+.linha1{
+    transform: rotate(23deg);
+}
+.linha2 {
+    transform: rotate(45deg);
+}
+.linha3 {
+    transform: rotate(67deg);
+}
+.linha4 {
+    transform: rotate(89deg);
+}
+.linha5 {
+    transform: rotate(111deg);
+}
+.linha6 {
+    transform: rotate(133deg);
+}
+.linha7 {
+    transform: rotate(155deg);
+}
+

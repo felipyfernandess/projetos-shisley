@@ -6,6 +6,7 @@
 }
 
 body {
+    overflow-x: hidden; /* Esconde a barra de rolagem horizontal */
     font-family: Arial, sans-serif;
     background-color: #111021;
     color: #bd1c58;
@@ -16,23 +17,81 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .lovely{
     display: flex;
     background-color: #d11258;
-    width: 250px;
+    width: 290px;
     align-items: center;
     justify-content: end;
     border-radius: 0px 40px 40px 0px;
-    padding: 10px 20px 0px 0px;
+    padding: 12px 20px 2px 0px;
 }
 
 .lovely > span{
-    margin-left: 10px;
-    margin-bottom: 10px;
+    margin: 0px 20px 12px 10px;
     color: white;
+    font-size: 1.1em;
+}
+
+.lovely > img{
+    width: 48px;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 360px;
+}
+
+.links > a{
+    position: relative;
+    color: #bd1c58;
+    font-weight: bold;
+    font-size: 1.14em;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color: #f68db5;
+    text-shadow: 0px 0px 3px #f68db5;
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+ 
+}
+
+.links > a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    width: 100%;
+    height: 2px;
+    background: #f68db5;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.links > a:hover::after,
+.links > a:focus::after {
+    transform: scaleX(1);
+}
+
+#home{
+    text-decoration: underline;
+    text-decoration-color: #bd1c58;      /* Cor do underline */
+    text-decoration-thickness: 1.5px;      /* Espessura do underline */
+    text-underline-offset: 2px;  
+}
+
+#home:hover{
+    text-decoration: none;
 }
 
 .observations{
@@ -40,41 +99,109 @@ header{
     align-items: center;
     justify-content: center;
     background-color: #d11258;
-    width: 250px;
-    height: 50px;
-    color: #111021;
+    width: 290px;
+    height: 60px;
     font-weight: bolder;
     border-radius: 40px 0px 0px 40px;
     padding: 10px 0px 10px 20px;
 }
+
+.observations > span > a{
+    color: #111021;
+    font-size: 1.1em;
+}
+
+.observations > span > a:hover{
+    color: #f68db5;
+    text-shadow: 0px 0px 3px #f68db5;
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.container  h1{
+    font-size: 4.4em;
+}
+
+.container h2{
+    font-size: 2.68em;
+    color: #f68db5;
+    margin-bottom: 30px;
+    margin-top: -5px;
+}
+
+.sub-titulo::before,
+.sub-titulo::after {
+  content: "";
+  position: absolute;
+  top: 282px;
+  width: 302px; /* tamanho dos traços */
+  height: 3px; /* espessura */
+  background-color: #bd1c58; /* cor dos traços */
+}
+
+.sub-titulo::before {
+  left: 87px; /* ajuste de distância à esquerda */
+}
+
+.sub-titulo::after {
+  right: 87px; /* ajuste de distância à direita */
+}
+
+
+
+.imagem-shisley{
+    border: 2px solid #f68db5;
+    width: 675px;
+    margin: auto;
+    border-radius: 200px;
+}
+
+.imagem-shisley > img{
+    width: 600px;
+    margin: 30px 40px;
+}
+
+
+
+.circulos{
+    position: absolute;
+    top: 330px;
+    left: calc(100% - 35px);
+    width: 80px;
+    height: 80px;
+    color: transparent;
+    border: 2px solid #bd1c58;
+    border-radius: 50%;
+}
+
+#c01{
+    top: 385px;
+}
+
+
+
+
+
 
 
 .coracao-transparente{
     width: 40px;
 }
 
-.batimento-coracao{
-    display: flex;
-    width: 300px;
-    justify-content: center;
-    align-items: center;
-}
 
 
-.animacao-coracao{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-}
 
-.imagem-shisley {
-    width: 400px;
-}
 
-.imagem-shisley > img{
-    width: 400px;
-}
+
+
+
+
 
 #triangulos{
     display: grid;
@@ -90,3 +217,4 @@ header{
     border-bottom: 40px solid #5386E4;
     rotate: -135deg;
 }
+

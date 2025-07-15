@@ -1,13 +1,19 @@
 @charset "UTF-8";
 
+.batimento-coracao{
+    margin: auto;
+    margin-bottom: 20px;
+    width: 300px;
+}
+
 svg {
   overflow: visible;
 }
 
-svg path#line {
+svg path#line-batimento {
   fill: none;
-  stroke: #e00000;
-  stroke-width: 2;
+  stroke: #bd1c58;
+  stroke-width: 3;
   stroke-linecap: butt;
   stroke-linejoin: round;
   stroke-miterlimit: 4;
