@@ -7,6 +7,7 @@
 
 body {
     overflow-x: hidden; /* Esconde a barra de rolagem horizontal */
+    overflow-y: hidden; /* Esconde a barra de rolagem vertical */
     font-family: Arial, sans-serif;
     background-color: #111021;
     color: #bd1c58;
@@ -157,14 +158,14 @@ a:hover{
 
 .imagem-shisley{
     border: 2px solid #f68db5;
-    width: 675px;
+    width: 665px;
     margin: auto;
     border-radius: 200px;
 }
 
 .imagem-shisley > img{
-    width: 600px;
-    margin: 30px 40px;
+    width: 580px;
+    margin: 35px 45px;
 }
 
 
@@ -184,37 +185,38 @@ a:hover{
     top: 385px;
 }
 
-
-
-
-
-
-
-.coracao-transparente{
-    width: 40px;
-}
-
-
-
-
-
-
-
-
-
-
 #triangulos{
+    position: absolute;
+    top: calc(100% - 100px);
     display: grid;
-    grid-template-columns: 55px 55px;
-    grid-template-rows: 55px 55px;
+    grid-template-columns: 62px 62px;
+    grid-template-rows: 62px 62px;
+    margin-left: -24px;
 }
 
 .triangulo{
     width: 0; 
     height: 0; 
-    border-left: 40px solid transparent;
-    border-right: 40px solid transparent;
-    border-bottom: 40px solid #5386E4;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 45px solid #bd1c58;
     rotate: -135deg;
+}
+
+footer{
+    position: absolute;
+    top: 820px;
+    left: calc(100% - 380px);
+    font-size: 1.1em;
+}
+
+footer > div > p{
+    font-weight: 400;
+    color: #f68db5;
+}
+
+footer .nomes{
+    font-weight: 400;
+    color: #bd1c58;
 }
 

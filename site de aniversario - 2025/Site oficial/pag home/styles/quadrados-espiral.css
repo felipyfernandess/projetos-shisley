@@ -2,13 +2,19 @@
 
 /* QUADRADOS */
 
+.quadrados{
+    position: absolute;
+    left: 414px;
+    top: 783px;
+}
+
 .quadrado1{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 300px;
-    height: 300px;
-    background-color: rgb(222, 62, 89);
+    width: 65px;
+    height: 65px;
+    background-color: #bd1c58;
     rotate: 45deg;
 }
 
@@ -16,16 +22,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 212px;
-    height: 212px;
-    background-color: black;
+    width: 47px;
+    height: 47px;
+    background-color: #111021;
     rotate: 45deg;
 }
 
 .quadrado3{
-    width: 150px;
-    height: 150px;
-    background-color: rgb(222, 62, 89);
+    width: 34px;
+    height: 34px;
+    background-color: #bd1c58;
     rotate: 45deg;
 }
 
@@ -33,8 +39,8 @@
 
 .linha{
     position: absolute;
-    top: 470px;
-    left: 994px;
+    top: 475px;
+    left: 992px;
     width: 75px;
     height: 2px;
     background-color: #bd1c58;
