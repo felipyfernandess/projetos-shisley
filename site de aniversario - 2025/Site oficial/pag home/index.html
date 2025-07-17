@@ -24,7 +24,9 @@
             <a href=""> Love Letter</a>
         </div>
         <div class="observations">
-            <span><a href="../pag obs-home/index.html">Observations</a></span>
+            <span id="observations">
+                <a href="../pag obs-home/index.html">Observations</a>
+            </span>
         </div>
     </header>
     <main>
@@ -105,5 +107,16 @@
             <p>by <span class="nomes">Felipy Fernandes</span> to <span class="nomes">Shisley Jhyanny</span></p>
         </div>
     </footer>
+    <audio id="audio1" src="../pag home/audio/Seja bem vinda, Shis.wav" autoplay></audio>
+    <audio id="audio2" src="../musicas/New West  Those Eyes Chapter.mp3"></audio>
+
+    <script>
+    const audio1 = document.getElementById('audio1');
+    const audio2 = document.getElementById('audio2');
+
+    audio1.addEventListener('ended', function() {
+        audio2.play();
+    });
+    </script>
 </body>
 </html>

@@ -84,22 +84,6 @@ a:hover{
     transform: scaleX(1);
 }
 
-#observations{
-    text-decoration: underline;
-    text-decoration-color: #111021;      /* Cor do underline */
-    text-decoration-thickness: 2px;      /* Espessura do underline */
-    text-underline-offset: 1.5px;  
-}
-
-#home:hover{
-    text-decoration: none;
-}
-
-#observations:hover a,
-#observations a:hover {
-    text-decoration: none;
-}
-
 .observations{
     display: flex;
     align-items: center;
@@ -121,6 +105,36 @@ a:hover{
     color: #f68db5;
     text-shadow: 0px 0px 3px #f68db5;
     transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+#observations{
+    position: relative;
+    text-decoration: underline;
+    text-decoration-color: #111021;      /* Cor do underline */
+    text-decoration-thickness: 1.5px;      /* Espessura do underline */
+    text-underline-offset: 2px;  
+}
+
+#observations:hover{
+    text-decoration: none;
+}
+
+#observations > a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    width: 100%;
+    height: 2px;
+    background: #f68db5;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+#observations > a:hover::after,
+#observations > a:focus::after {
+    transform: scaleX(1);
 }
 
 .container {
