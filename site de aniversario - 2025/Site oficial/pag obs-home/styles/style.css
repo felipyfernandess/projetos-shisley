@@ -118,22 +118,32 @@ a:hover{
     transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    padding: 15px 30px;
+    border-radius: 45px;
+    background: linear-gradient(to bottom, #fcdae7, #fde1eb, #fdebf2, #fef0f5, #ffffff);
+    margin: auto;
+    width: 740px;
+    height: 690px;
+    margin-top: 15px;
 }
 
-.container  h1{
-    font-size: 4.4em;
+.container > .titulo {
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: center;
+    padding: 0px 50px;
+    margin-bottom: 20px;
+    color: #bd1c58;
 }
 
-.container h2{
-    font-size: 2.68em;
-    color: #f68db5;
-    margin-bottom: 30px;
-    margin-top: -5px;
+.container > p{
+    text-align: justify;
+    font-size: 1.2em;
+    color: #111021;
 }
 
 .sub-titulo::before,
@@ -152,18 +162,6 @@ a:hover{
 
 .sub-titulo::after {
   right: 87px; /* ajuste de distância à direita */
-}
-
-.imagem-shisley{
-    border: 2px solid #f68db5;
-    width: 665px;
-    margin: auto;
-    border-radius: 200px;
-}
-
-.imagem-shisley > img{
-    width: 580px;
-    margin: 35px 45px;
 }
 
 .circulos{
@@ -201,9 +199,8 @@ a:hover{
 
 footer{
     position: absolute;
-    top: 820px;
-    left: calc(100% - 380px);
-    font-size: 1.1em;
+    bottom: 13px;
+    left: calc(50% - 155.56px);
 }
 
 footer > div > p{
@@ -215,4 +212,3 @@ footer .nomes{
     font-weight: 400;
     color: #bd1c58;
 }
-
