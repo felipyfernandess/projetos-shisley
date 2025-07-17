@@ -84,14 +84,19 @@ a:hover{
     transform: scaleX(1);
 }
 
-#home{
+#observations{
     text-decoration: underline;
-    text-decoration-color: #bd1c58;      /* Cor do underline */
-    text-decoration-thickness: 1.5px;      /* Espessura do underline */
-    text-underline-offset: 2px;  
+    text-decoration-color: #111021;      /* Cor do underline */
+    text-decoration-thickness: 2px;      /* Espessura do underline */
+    text-underline-offset: 1.5px;  
 }
 
 #home:hover{
+    text-decoration: none;
+}
+
+#observations:hover a,
+#observations a:hover {
     text-decoration: none;
 }
 
