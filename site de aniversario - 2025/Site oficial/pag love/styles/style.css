@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Unna';
+    src: url(../../fonts/Unna/Unna-Italic.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Great Vibes';
+    src: url(../../fonts/GreatVibes/GreatVibes-Regular.ttf) format('truetype');
+}
