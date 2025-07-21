@@ -32,7 +32,7 @@
     <main>
         <div class="container">
             <div class="titulo">
-                <h1>Seja Bem Vinda, Shisley!</h1>
+                <h1>Seja Bem Vinda, <span id="nome-animado">Shisley</span>!</h1>
             </div>
             <div class="sub-titulo">
                 <h2>O cantinho que criei só para você</h2>
@@ -126,5 +126,40 @@
         audio2.play();
     });
     </script>
+    <script>
+        
+// Animação de digitação para alternar entre 'Shisley' e 'Amor'
+const palavras = ["Shisley", "Amor"];
+let palavraAtual = 0;
+let indiceLetra = 0;
+let apagando = false;
+const nomeAnimado = document.getElementById('nome-animado');
+const velocidade = 130; // ms por letra
+delayEntrePalavras = 4000; // ms de espera entre as palavras
+
+function digitar() {
+    if (!apagando && indiceLetra <= palavras[palavraAtual].length) {
+        nomeAnimado.textContent = palavras[palavraAtual].substring(0, indiceLetra);
+        indiceLetra++;
+        if (indiceLetra > palavras[palavraAtual].length) {
+            setTimeout(() => { apagando = true; digitar(); }, delayEntrePalavras);
+        } else {
+            setTimeout(digitar, velocidade);
+        }
+    } else if (apagando && indiceLetra >= 0) {
+        nomeAnimado.textContent = palavras[palavraAtual].substring(0, indiceLetra);
+        indiceLetra--;
+        if (indiceLetra < 0) {
+            apagando = false;
+            palavraAtual = (palavraAtual + 1) % palavras.length;
+            setTimeout(digitar, velocidade);
+        } else {
+            setTimeout(digitar, velocidade / 1.0);
+        }
+    }
+}
+
+digitar();
+</script>
 </body>
 </html>
