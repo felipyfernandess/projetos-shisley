@@ -242,3 +242,22 @@ footer .nomes{
     color: #bd1c58;
 }
 
+#cursor-digitacao {
+            display: inline-block;
+            width: 4px;
+            height: 1em;
+            background: #ff4d6d;
+            margin-left: 4px;
+            margin-right: 0;
+            vertical-align: -0.1em;
+            animation: blink-cursor 0.8s steps(1) infinite;
+            border-radius: 1px;
+            font-size: inherit;
+            color: transparent;
+        }
+        
+@keyframes blink-cursor {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+

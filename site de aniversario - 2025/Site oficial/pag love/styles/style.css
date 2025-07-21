@@ -15,3 +15,109 @@
     font-family: 'Great Vibes';
     src: url(../../fonts/GreatVibes/GreatVibes-Regular.ttf) format('truetype');
 }
+
+body {
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    margin-top: 30px;
+    background: linear-gradient(to bottom, #fcdae7, #fde1eb, #fdebf2, #fef0f5, #ffffff);
+    background-repeat: no-repeat;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1300px;
+    margin: auto;
+    background-color: white;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1.14em;
+    padding: 10px 0px;
+}
+
+.ciracao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.coracao > img{
+    margin: 0px 30px -7px 30px;
+}
+
+a{
+    text-decoration: none;
+    color: #f68db5;
+}
+
+a:hover{
+    color: #fdb7d2;
+    text-shadow: 0px 0px 3px #fdb7d2;
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+ 
+}
+
+.links{
+    display: flex;
+    margin: 0px 270px 0px 380px;
+    justify-content: space-between;
+    width: 380px;
+}
+
+.links > a{
+    position: relative;
+}
+
+.links > a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    width: 100%;
+    height: 2px;
+    background: #fdb7d2;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.links > a:hover::after,
+.links > a:focus::after {
+    transform: scaleX(1);
+}
+
+#love{
+    text-decoration: underline;
+    text-decoration-color: #f68db5;      /* Cor do underline */
+    text-decoration-thickness: 1.5px;      /* Espessura do underline */
+    text-underline-offset: 2px;  
+}
+
+#love:hover{
+    text-decoration: none;
+}
+
+.observations {
+    padding: 10px 20px;
+    margin-right: 15px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #fcdae7, #fde1eb, #fdebf2, #fef0f5);
+}
+
+.scroll{
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 20px 0px;
+    border-radius: 10px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.12em;
+    color: #f68db5;
+    font-weight: 400;
+    background: linear-gradient(to bottom, #fcdae7, #fde1eb, #fdebf2, #fef0f5);
+}
