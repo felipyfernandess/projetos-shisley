@@ -26,48 +26,162 @@
         </div>
     </header>
     <main>
-        <a href="">
+        <button id="scrollButton">
             <div class="scroll">
-                <span>
-                    scroll to the end
-                </span>
-                <span>
-                   <i class="fa-solid fa-chevron-down"></i>
-                </span>
+                    <span>
+                        scroll to the end
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </span>
             </div>
-        </a>
+    </button>
         <div class="principal">
-            <div class="titulo">
+            <div class="titulo fade-in">
                 <h1>Porque em Qualquer Idioma, é Você!</h1>
             </div>
-            <div class="frases">
-                <h2>Português:</h2>
-                <p>Eu te amo</p>
+            <div class="frases fade-in">
+                <h2 id="lingua">Português:</h2>
+                <p id="eu-te-amo">Eu te amo</p>
             </div>
-            <div class="frases">
-                <h2>Inglês:</h2>
-                <p>I love you</p>
+            <div class="frases fade-in">
+                <h2 id="lingua">Inglês:</h2>
+                <p id="eu-te-amo">I love you</p>
             </div>
-            <div class="frases">
-                <h2></h2>
-                <p></p>
+            <div class="frases fade-in">
+                <h2 id="lingua"></h2>
+                <p id="eu-te-amo"></p>
             </div>
-            <div class="frases">
-                <h2></h2>
-                <p></p>
+            <div class="frases fade-in">
+                <h2 id="lingua"></h2>
+                <p id="eu-te-amo"></p>
             </div>
-            <div class="frases">
-                <h2></h2>
-                <p></p>
+            <div class="frases fade-in">
+                <h2 id="lingua"></h2>
+                <p id="eu-te-amo"></p>
             </div>
-            <div class="frases">
-                <h2></h2>
-                <p></p>
+            <div class="frases fade-in">
+                <h2 id="lingua"></h2>
+                <p id="eu-te-amo"></p>
             </div>
-            <div class="frases">
-                <h2></h2>
-                <p></p>
-            </div>
+        </div>
     </main>
+
+    <button id="pauseScrollButton" class="floating-btn">
+        <span id="pauseIcon"><i class="fa-solid fa-pause"></i></span>
+        <span id="pauseText">Pausar</span>
+    </button>
+    <button id="backToTopButton" class="floating-btn">
+        <span><i class="fa-solid fa-arrow-up"></i></span>
+        <span>Topo</span>
+    </button>
+
+    <script>
+        let isScrolling = false;
+        let scrollAnimationFrame;
+        let pause = false;
+
+        function scrollToBottomConstant(speedPixelsPerSecond = 300) {
+          const start = window.scrollY;
+          const end = document.body.scrollHeight - window.innerHeight;
+          const distance = end - start;
+    
+          if (distance <= 0) return;
+    
+          const speed = speedPixelsPerSecond; // pixels por segundo
+          const duration = distance / speed * 1000; // ms
+          const startTime = performance.now();
+    
+          function step(currentTime) {
+            if (pause) {
+              isScrolling = false;
+              return;
+            }
+            const elapsed = currentTime - startTime;
+            const progress = elapsed / duration;
+            const currentScroll = start + distance * progress;
+    
+            window.scrollTo(0, currentScroll);
+    
+            if (progress < 1) {
+              scrollAnimationFrame = requestAnimationFrame(step);
+            } else {
+              window.scrollTo(0, end); // garante que vá exatamente ao final
+              isScrolling = false;
+            }
+          }
+    
+          isScrolling = true;
+          scrollAnimationFrame = requestAnimationFrame(step);
+        }
+
+        document.getElementById("scrollButton").addEventListener("click", () => {
+          pause = false;
+          document.getElementById('pauseText').textContent = 'Pausar';
+          document.getElementById('pauseIcon').innerHTML = '<i class="fa-solid fa-pause"></i>';
+          if (!isScrolling) scrollToBottomConstant(300);
+        });
+
+        document.getElementById("pauseScrollButton").addEventListener("click", () => {
+          pause = !pause;
+          const pauseText = document.getElementById('pauseText');
+          const pauseIcon = document.getElementById('pauseIcon');
+          if (pause) {
+            pauseText.textContent = 'Continuar';
+            pauseIcon.innerHTML = '<i class="fa-solid fa-play"></i>';
+            if(scrollAnimationFrame) {
+              cancelAnimationFrame(scrollAnimationFrame);
+            }
+          } else {
+            pauseText.textContent = 'Pausar';
+            pauseIcon.innerHTML = '<i class="fa-solid fa-pause"></i>';
+            if (!isScrolling) {
+                // Retoma a rolagem de onde parou
+                scrollToBottomConstant(300);
+            }
+          }
+        });
+
+        // Para a rolagem automática se o usuário rolar manualmente
+        window.addEventListener('wheel', () => {
+          if (isScrolling) {
+            pause = true;
+            isScrolling = false;
+            cancelAnimationFrame(scrollAnimationFrame);
+            document.getElementById('pauseText').textContent = 'Continuar';
+            document.getElementById('pauseIcon').innerHTML = '<i class="fa-solid fa-play"></i>';
+          }
+        }, { passive: true });
+
+        // Animação fade-in ao aparecer
+        function handleFadeIn() {
+          const fadeEls = document.querySelectorAll('.fade-in');
+          fadeEls.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 60) {
+              el.classList.add('visible');
+            }
+          });
+        }
+        window.addEventListener('scroll', handleFadeIn);
+        window.addEventListener('DOMContentLoaded', handleFadeIn);
+
+        // Botão de voltar ao topo
+        const backToTopButton = document.getElementById('backToTopButton');
+        const pauseButton = document.getElementById('pauseScrollButton');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 200) {
+            backToTopButton.style.display = 'flex';
+            pauseButton.style.display = 'flex';
+          } else {
+            backToTopButton.style.display = 'none';
+            pauseButton.style.display = 'none';
+          }
+        });
+        backToTopButton.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      </script>
+    
 </body>
 </html>
