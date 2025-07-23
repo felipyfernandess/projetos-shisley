@@ -201,11 +201,14 @@ body::-webkit-scrollbar {
   width: 12px;
 }
 body::-webkit-scrollbar-thumb {
-  background: #e2afc2;
+  background: #e2afc285;
   border-radius: 20px;
 }
 body::-webkit-scrollbar-track {
   background: linear-gradient(to bottom, #fcdae7, #fde1eb, #fdebf2, #fef0f5, #ffffff);
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #fa98be;
 }
 
 /* Scroll suave */
