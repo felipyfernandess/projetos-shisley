@@ -205,7 +205,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;
 }
 body::-webkit-scrollbar-track {
-  background: linear-gradient(to bottom, #fcdae7, #fde1eb, #fdebf2, #fef0f5, #ffffff);
+  background: linear-gradient(to bottom, #fcdae7, #fde1eb, #fdebf2);
 }
 body::-webkit-scrollbar-thumb:hover {
   background: #fa98be;
