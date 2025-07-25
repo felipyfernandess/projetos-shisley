@@ -196,6 +196,21 @@ h1, h2, p{
     background: #f8c7d9;
 }
 
+footer{
+    margin: 40px 0px 20px 0px;
+    font-size: 1.1em;
+}
+
+footer > div > p{
+    font-weight: 400;
+    color: #f5b6cd;
+}
+
+footer .nomes{
+    font-weight: 400;
+    color: #f68db5;
+}
+
 /* Barra de rolagem personalizada */
 body::-webkit-scrollbar {
   width: 12px;
