@@ -17,6 +17,19 @@ main{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.video-container > video {
+    width: 660px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
 .balao {
     position: fixed;
     bottom: -100px;
@@ -24,7 +37,7 @@ main{
     height: 85px;
     border-radius: 50% 50% 45% 45%;
     opacity: 0.85;
-    z-index: 10;
+    z-index: 1000;
     animation: subir-balao 6s linear forwards;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     display: flex;
@@ -86,4 +99,51 @@ i{
 i:hover{
     transform: scale(1.5);
     box-shadow: 0 0 20px #D70BEB;
+}
+
+/* Estilos do botão de áudio */
+.audio-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #D70BEB, #d829e1);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(215, 11, 235, 0.3);
+    z-index: 100;
+}
+
+.audio-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(215, 11, 235, 0.4);
+    background: linear-gradient(135deg, #d829e1, #D70BEB);
+}
+
+.audio-button.audio-active {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.audio-button.audio-active:hover {
+    background: linear-gradient(135deg, #45a049, #4CAF50);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.audio-button i {
+    font-size: 16px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.audio-button span {
+    font-family: Arial, Helvetica, sans-serif;
 }

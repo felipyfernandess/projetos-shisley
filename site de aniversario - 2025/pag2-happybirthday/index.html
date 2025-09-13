@@ -9,9 +9,12 @@
 </head>
 <body>
     <main>
-        <div style="position: relative; width: 660px; height: 415px;">
-            <iframe id="video" width="660" height="415" src="https://www.youtube.com/embed/n07W-3ZXfHY?si=ghZNwcVjmTs8i_V4&controls=0&autoplay=1&loop=1&mute=1&playlist=n07W-3ZXfHY" frameborder="0" allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <button id="unmuteBtn" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 16px 32px; font-size: 18px; background: #D70BEB; border: none; border-radius: 8px; cursor: pointer;">Ativar som 🔊</button>
+        <div class="video-container">
+            <video id="birthdayVideo" src="videos/video.mp4" autoplay muted loop playsinline></video>
+            <button id="audioBtn" class="audio-button">
+                <i class="fa-solid fa-volume-xmark"></i>
+                <span>Ativar Áudio</span>
+            </button>
         </div>
         <h1> Happy Birthday To You!!!</h1>
         <div>
@@ -20,14 +23,24 @@
             </a>
         </div>
         <script>
-            const btn = document.getElementById('unmuteBtn');
-            const iframe = document.getElementById('video');
-            btn.addEventListener('click', function() {
-                // Troca o src para remover o mute=1
-                let src = iframe.src;
-                src = src.replace('mute=1', 'mute=0');
-                iframe.src = src;
-                btn.style.display = 'none';
+            // Script para controlar o áudio do vídeo
+            const video = document.getElementById('birthdayVideo');
+            const audioBtn = document.getElementById('audioBtn');
+            const audioIcon = audioBtn.querySelector('i');
+            const audioText = audioBtn.querySelector('span');
+            
+            audioBtn.addEventListener('click', function() {
+                if (video.muted) {
+                    video.muted = false;
+                    audioIcon.className = 'fa-solid fa-volume-high';
+                    audioText.textContent = 'Desativar Áudio';
+                    audioBtn.classList.add('audio-active');
+                } else {
+                    video.muted = true;
+                    audioIcon.className = 'fa-solid fa-volume-xmark';
+                    audioText.textContent = 'Ativar Áudio';
+                    audioBtn.classList.remove('audio-active');
+                }
             });
 
             // Script dos balões coloridos
