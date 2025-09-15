@@ -59,7 +59,7 @@ a{
     text-decoration: none;
 }
 
-a:hover{
+.links > a:hover{
     color: #f68db5;
     text-shadow: 0px 0px 3px #f68db5;
     transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
@@ -230,16 +230,71 @@ footer{
     top: 820px;
     left: calc(100% - 380px);
     font-size: 1.1em;
+    transition: transform 0.3s ease-in-out;
 }
 
-footer > div > p{
+/* Tooltip no footer */
+footer::after{
+    content: "Ao clicar, você vai para o GitHub do projeto!";
+    position: absolute;
+    left: 50%;
+    bottom: 120%;
+    transform: translateX(-50%);
+    background: #111021;
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.8em;
+    white-space: nowrap;
+    box-shadow: 4px 4px 10px #bd1c575e;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+footer::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: calc(120% - 6px);
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+    transition: opacity 0.2s ease;
+}
+
+footer:hover::after{
+    opacity: 1;
+    transform: translateX(-50%) translateY(-2px);
+}
+
+footer:hover::before{
+    opacity: 1;
+}
+
+footer > div {
     font-weight: 400;
+    color: #f68db5;
+}
+
+footer .git-hub{
+    text-decoration: none;
     color: #f68db5;
 }
 
 footer .nomes{
     font-weight: 400;
     color: #bd1c58;
+}
+
+footer:hover{
+    transform: scale(1.02) translateY(-5px);
+    text-shadow: 0px 0px 5px #f68db57e;
 }
 
 #cursor-digitacao {

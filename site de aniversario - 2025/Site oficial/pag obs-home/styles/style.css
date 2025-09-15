@@ -160,6 +160,7 @@ a:hover{
 }
 
 .container > p{
+    margin-bottom: -10px;
     text-align: justify;
     font-size: 1.2em;
     color: #111021;
