@@ -99,14 +99,35 @@ h1{
     color: white;
     text-align: center;
     letter-spacing: -3px;
+    margin-bottom: 20px;
 }
 
+.carta{
+    width: 1090px;
+    background-color: rgba(255, 255, 255, 0.726);
+    margin: auto;
+    border-radius: 70px;
+    padding: 30px;
+    font-family: 'Great Vibes', serif;
+    box-shadow: 0px 0px 15px 5px #ea79a46c;
+}
 
+.carta p{
+    color: #bd1c58;
+    margin-bottom: 15px;
+    text-indent: 30px;
+    text-align: justify;
+    font-size: 1.2em;
+}
 
+.carta > .feliz-aniversario{
+    font-size: 1.5em;
+    font-style: italic;
+}
 
-
-
-
+footer{
+    margin: 15px 0px;
+}
 
 footer > div > p{
     font-weight: 400;
@@ -118,3 +139,22 @@ footer .nomes{
     color: #e94f87;
 }
 
+/* Barra de rolagem personalizada */
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-thumb {
+  background: #91536c;
+  border-radius: 20px;
+}
+body::-webkit-scrollbar-track {
+  background: #542B3B;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #EA79A5;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
